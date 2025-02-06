@@ -1,0 +1,70 @@
+{
+  "products": [
+    {
+      "id": "P001",
+      "name": "Sản phẩm A",
+      "price": 100,
+      "type": "Loại 1"
+    },
+    {
+      "id": "P002",
+      "name": "Sản phẩm B",
+      "price": 150,
+      "type": "Loại 2"
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "ORD001",
+      "purchaseDate": "2025-02-01",
+      "total": 200,
+      "quantity": 2,
+      "product": {
+        "id": "P001",
+        "name": "Sản phẩm A",
+        "price": 100,
+        "type": "Loại 1"
+      },
+      "id": "3a42"
+    },
+    {
+      "orderId": "ORD002",
+      "purchaseDate": "2025-02-02",
+      "total": 450,
+      "quantity": 3,
+      "product": {
+        "id": "P002",
+        "name": "Sản phẩm B",
+        "price": 150,
+        "type": "Loại 2"
+      },
+      "id": "535f"
+    },
+    {
+      "id": "3055",
+      "orderId": "sdf",
+      "purchaseDate": "2025-02-06",
+      "total": 100,
+      "quantity": "1",
+      "product": {
+        "id": "P001",
+        "name": "Sản phẩm A",
+        "price": 100,
+        "type": "Loại 1"
+      }
+    },
+    {
+      "id": "94db",
+      "orderId": "sdfs",
+      "purchaseDate": "2025-02-05",
+      "total": 6750,
+      "quantity": "45",
+      "product": {
+        "id": "P002",
+        "name": "Sản phẩm B",
+        "price": 150,
+        "type": "Loại 2"
+      }
+    }
+  ]
+}
