@@ -24,7 +24,7 @@ export default function AddOrder() {
             .catch ( error => console.error ( "Error loading products:" , error ) );
     } , [] );
 
-    // Hàm xử lý khi thêm đơn hàng
+    // Thêm đơn hàng
     const handleSubmit = (e) => {
         e.preventDefault ();
 
@@ -32,17 +32,15 @@ export default function AddOrder() {
         const currentDate = new Date ();
         const purchaseDateObj = new Date ( purchaseDate );
 
-        // Kiểm tra điều kiện nhập liệu
+        // Kiểm tra điều kiện
         if (!orderId || !product || !quantity || !purchaseDate) {
             setErrorMessage ( "Tất cả các trường đều là bắt buộc!" );
             return;
         }
-
         if (purchaseDateObj > currentDate) {
             setErrorMessage ( "Ngày mua không được lớn hơn ngày hiện tại." );
             return;
         }
-
         if (quantity <= 0 || !Number.isInteger ( Number ( quantity ) )) {
             setErrorMessage ( "Số lượng phải là số nguyên và lớn hơn 0." );
             return;
@@ -59,16 +57,17 @@ export default function AddOrder() {
             quantity ,
             product: selectedProduct
         };
-        // Gửi đơn hàng mới đến server
-        axios.post("http://localhost:3001/orders", newOrder)
-            .then(() => {
-                alert("Thêm đơn hàng thành công!");
-                navigate('/');
-            })
-            .catch(error => {
-                console.error("Error adding order:", error);
-                setErrorMessage("Đã xảy ra lỗi khi thêm đơn hàng.");
-            });
+
+        // Gửi đơn hàng mới đến db.json
+        axios.post ( "http://localhost:3001/orders" , newOrder )
+            .then ( () => {
+                alert ( "Thêm đơn hàng thành công!" );
+                navigate ( '/' );
+            } )
+            .catch ( error => {
+                console.error ( "Error adding order:" , error );
+                setErrorMessage ( "Đã xảy ra lỗi khi thêm đơn hàng." );
+            } );
     };
 
     return (
@@ -78,6 +77,8 @@ export default function AddOrder() {
             {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
 
             <form onSubmit={handleSubmit} className="p-4 border rounded bg-light">
+
+                {/* Mã */}
                 <div className="mb-3">
                     <label htmlFor="orderId" className="form-label">Mã đơn hàng:</label>
                     <input
@@ -90,6 +91,7 @@ export default function AddOrder() {
                     />
                 </div>
 
+                {/* Tên */}
                 <div className="mb-3">
                     <label htmlFor="product" className="form-label">Sản phẩm:</label>
                     <select
@@ -106,6 +108,7 @@ export default function AddOrder() {
                     </select>
                 </div>
 
+                {/* Số lượng */}
                 <div className="mb-3">
                     <label htmlFor="quantity" className="form-label">Số lượng:</label>
                     <input
@@ -119,6 +122,7 @@ export default function AddOrder() {
                     />
                 </div>
 
+                {/* Ngày mua */}
                 <div className="mb-3">
                     <label htmlFor="purchaseDate" className="form-label">Ngày mua:</label>
                     <input
