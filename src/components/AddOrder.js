@@ -1,6 +1,7 @@
 import { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function AddOrder() {
     const navigate = useNavigate ();
@@ -58,28 +59,6 @@ export default function AddOrder() {
             quantity ,
             product: selectedProduct
         };
-
-        // Cập nhật đơn hàng vào db.json
-        // axios.get ( "http://localhost:3001/orders" )
-        //     .then ( response => {
-        //         const orders = response.data || [];
-        //         orders.push ( newOrder );
-        //
-        //         // Lưu đơn hàng vào db.json
-        //         axios.put ( "http://localhost:3001/orders" , orders )
-        //             .then ( () => {
-        //                 alert ( "Thêm đơn hàng thành công!" );
-        //                 navigate ( '/' );
-        //             } )
-        //             .catch ( error => {
-        //                 console.error ( "Error adding order:" , error );
-        //                 setErrorMessage ( "Đã xảy ra lỗi khi thêm đơn hàng." );
-        //             } );
-        //     } )
-        //     .catch ( error => {
-        //         console.error ( "Error reading db.json:" , error );
-        //         setErrorMessage ( "Không thể đọc dữ liệu từ db.json." );
-        //     } );
         // Gửi đơn hàng mới đến server
         axios.post("http://localhost:3001/orders", newOrder)
             .then(() => {
@@ -93,25 +72,29 @@ export default function AddOrder() {
     };
 
     return (
-        <div>
-            <h1>Thêm mới đơn hàng</h1>
+        <div className="container mt-4">
+            <h1 className="mb-4">Thêm mới đơn hàng</h1>
 
-            {errorMessage && <p style={{color: "red"}}>{errorMessage}</p>}
+            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
 
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Mã đơn hàng:
+            <form onSubmit={handleSubmit} className="p-4 border rounded bg-light">
+                <div className="mb-3">
+                    <label htmlFor="orderId" className="form-label">Mã đơn hàng:</label>
                     <input
                         type="text"
+                        id="orderId"
+                        className="form-control"
                         value={orderData.orderId}
                         onChange={(e) => setOrderData ( {...orderData , orderId: e.target.value} )}
                         required
                     />
-                </label>
+                </div>
 
-                <label>
-                    Sản phẩm:
+                <div className="mb-3">
+                    <label htmlFor="product" className="form-label">Sản phẩm:</label>
                     <select
+                        id="product"
+                        className="form-select"
                         value={orderData.product}
                         onChange={(e) => setOrderData ( {...orderData , product: e.target.value} )}
                         required
@@ -121,30 +104,34 @@ export default function AddOrder() {
                             <option key={product.id} value={product.id}>{product.name}</option>
                         ) )}
                     </select>
-                </label>
+                </div>
 
-                <label>
-                    Số lượng:
+                <div className="mb-3">
+                    <label htmlFor="quantity" className="form-label">Số lượng:</label>
                     <input
                         type="number"
+                        id="quantity"
+                        className="form-control"
                         min="1"
                         value={orderData.quantity}
                         onChange={(e) => setOrderData ( {...orderData , quantity: e.target.value} )}
                         required
                     />
-                </label>
+                </div>
 
-                <label>
-                    Ngày mua:
+                <div className="mb-3">
+                    <label htmlFor="purchaseDate" className="form-label">Ngày mua:</label>
                     <input
                         type="date"
+                        id="purchaseDate"
+                        className="form-control"
                         value={orderData.purchaseDate}
                         onChange={(e) => setOrderData ( {...orderData , purchaseDate: e.target.value} )}
                         required
                     />
-                </label>
+                </div>
 
-                <button type="submit">Thêm đơn hàng</button>
+                <button type="submit" className="btn btn-primary">Thêm đơn hàng</button>
             </form>
         </div>
     );

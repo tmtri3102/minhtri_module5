@@ -2,41 +2,53 @@
   "products": [
     {
       "id": "P001",
-      "name": "Sản phẩm A",
-      "price": 100,
-      "type": "Loại 1"
+      "name": "iPhone 14",
+      "price": 799,
+      "type": "Smartphone"
     },
     {
       "id": "P002",
-      "name": "Sản phẩm B",
-      "price": 150,
-      "type": "Loại 2"
+      "name": "Samsung Galaxy S23",
+      "price": 999,
+      "type": "Smartphone"
+    },
+    {
+      "id": "P003",
+      "name": "Google Pixel 7",
+      "price": 599,
+      "type": "Smartphone"
+    },
+    {
+      "id": "P004",
+      "name": "OnePlus 11",
+      "price": 749,
+      "type": "Smartphone"
     }
   ],
   "orders": [
     {
       "orderId": "ORD001",
       "purchaseDate": "2025-02-01",
-      "total": 200,
+      "total": 1598,
       "quantity": 2,
       "product": {
         "id": "P001",
-        "name": "Sản phẩm A",
-        "price": 100,
-        "type": "Loại 1"
+        "name": "iPhone 14",
+        "price": 799,
+        "type": "Smartphone"
       },
       "id": "3a42"
     },
     {
       "orderId": "ORD002",
       "purchaseDate": "2025-02-02",
-      "total": 450,
+      "total": 2997,
       "quantity": 3,
       "product": {
         "id": "P002",
-        "name": "Sản phẩm B",
-        "price": 150,
-        "type": "Loại 2"
+        "name": "Samsung Galaxy S23",
+        "price": 999,
+        "type": "Smartphone"
       },
       "id": "535f"
     },
@@ -44,26 +56,52 @@
       "id": "3055",
       "orderId": "sdf",
       "purchaseDate": "2025-02-06",
-      "total": 100,
+      "total": 599,
       "quantity": "1",
       "product": {
-        "id": "P001",
-        "name": "Sản phẩm A",
-        "price": 100,
-        "type": "Loại 1"
+        "id": "P003",
+        "name": "Google Pixel 7",
+        "price": 599,
+        "type": "Smartphone"
       }
     },
     {
       "id": "94db",
       "orderId": "sdfs",
       "purchaseDate": "2025-02-05",
-      "total": 6750,
+      "total": 33705,
       "quantity": "45",
       "product": {
         "id": "P002",
-        "name": "Sản phẩm B",
-        "price": 150,
-        "type": "Loại 2"
+        "name": "Samsung Galaxy S23",
+        "price": 999,
+        "type": "Smartphone"
+      }
+    },
+    {
+      "id": "b120",
+      "orderId": "sdfs",
+      "purchaseDate": "2025-02-05",
+      "total": 999,
+      "quantity": "1",
+      "product": {
+        "id": "P002",
+        "name": "Samsung Galaxy S23",
+        "price": 999,
+        "type": "Smartphone"
+      }
+    },
+    {
+      "id": "5622",
+      "orderId": "214234",
+      "purchaseDate": "2025-02-06",
+      "total": 258405,
+      "quantity": "0345",
+      "product": {
+        "id": "P004",
+        "name": "OnePlus 11",
+        "price": 749,
+        "type": "Smartphone"
       }
     }
   ]
